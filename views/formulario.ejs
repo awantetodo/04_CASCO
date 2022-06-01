@@ -1,0 +1,35 @@
+<%- include('./encabezado')-%>
+
+    <body>
+        <div class="container mt-3">
+            <div class="jumbotron">
+                <h1 style="color:blue;">Ingrese producto</h1>
+                <br>
+<!--Cada producto estará representado por un objeto con el siguiente formato:
+{
+    title: (nombre del producto),
+    price: (precio),
+    thumbnail: (url al logo o foto del producto)
+}
+Cada ítem almacenado dispondrá de un id numérico proporcionado por el backend, comenzando en 1, 
+y que se irá incrementando a medida de que se incorporen productos. 
+Ese id será utilizado para identificar un producto que va a ser listado en forma individual.-->
+                <form action="api/productos/guardar" method="post">
+                    <div class="form-group">
+                        <label for="Title"><b>nombre del producto</b></label>
+                        <input id="title" class="form-control" type="text" name="title">
+                        <label for="Price"><b>precio</b></label>
+                        <input id="price" class="form-control" type="number" name="price">
+                        <label for="Thumbnail"><b>url al logo o foto del producto</b></label>
+                        <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+                    </div>
+                    <button class="btn btn-success mt-3 mb-5">Save</button>
+                </form>
+
+                <h2 style="color:crimson;">Historial</h2>
+                <%- include('./tabla') -%>
+            </div>
+        </div>
+    </body>
+
+    </html>
